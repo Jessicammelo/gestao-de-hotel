@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FormComponent } from './feature/person/form/form.component';
 import { ViewComponent } from './feature/person/view/view.component';
+import { CheckinComponent } from './feature/checkin/checkin.component';
 
 const routes: Routes = [
   {
@@ -10,8 +11,13 @@ const routes: Routes = [
   },
   {
     path: 'person/:id',
-    component: FormComponent
-  }
+    component: FormComponent,
+  },
+  {
+    path: 'checkin',
+    component: CheckinComponent,
+  },
+
 
 ];
 

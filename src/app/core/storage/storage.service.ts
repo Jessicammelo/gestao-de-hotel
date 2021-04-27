@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { CheckIn } from 'src/app/shared/models/checkIn';
 import { Person } from 'src/app/shared/models/person';
 
 @Injectable({
@@ -34,4 +35,17 @@ export class StorageService {
     });
     
   }
+
+  public addCheckIn(checkIn: CheckIn) {
+    const checkIns = this.listCheckIn();
+    checkIns.push(checkIn);
+    localStorage.setItem('checkIns', JSON.stringify(checkIns));
+  }
+
+  public listCheckIn(): CheckIn[] {
+    const checkIns = localStorage.getItem('checkIns');
+    return checkIns ? JSON.parse(checkIns) : [];
+  }
+
+  
 }

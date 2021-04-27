@@ -31,4 +31,8 @@ export class ViewComponent implements OnInit {
   public update(personId: string){
     this.router.navigate([`/person/${personId}`])
   }
+
+  public checkIn(){
+    this.router.navigate([`/checkin`])
+  }
 }

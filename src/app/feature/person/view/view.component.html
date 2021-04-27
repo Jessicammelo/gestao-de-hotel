@@ -1,6 +1,7 @@
 <br>
 <div class="container-fluid">
     <button (click)="add()" type="button" class="btn btn-primary ">Cadastrar</button>
+    <button  (click)="checkIn()"type="button" class="btn btn-link">Check-In</button>
     <br>
     <br>
     <div class="panel panel-primary">
@@ -36,7 +37,8 @@
                             {{person.phone}}
                         </td>
                         <td>
-                            <button  (click)="update(person.id)" type="button" class="margin-right btn btn-primary">Editar</button>
+                            <button (click)="update(person.id)" type="button"
+                                class="margin-right btn btn-primary">Editar</button>
                             <button (click)="onDelete(person.id)" type="button" class="btn btn-danger">Excluir</button>
                         </td>
 
