@@ -1,0 +1,51 @@
+<br>
+<div class="container-fluid">
+    <form [formGroup]="formGroup">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">{{isNew() ? 'Cadastrar' : 'Atualizar'}} pessoa</h3>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-4">
+                        <label>Nome</label>
+                        <div class="p-inputgroup">
+                            <input
+                                [ngClass]="{'invalid': formGroup.get('name').invalid && formGroup.get('name').touched}"
+                                class="form-control" formControlName="name" type="text">
+                        </div>
+                        <div class="color-red" *ngIf="formGroup.get('name').invalid && formGroup.get('name').touched">
+                            Campo obrigatório
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <label>Documento</label>
+                        <div class="p-inputgroup">
+                            <input
+                                [ngClass]="{'invalid': formGroup.get('document').invalid && formGroup.get('document').touched}"
+                                class="form-control" formControlName="document" type="text">
+                        </div>
+                        <div class="color-red"
+                            *ngIf="formGroup.get('document').invalid && formGroup.get('document').touched">
+                            Campo obrigatório
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <label>Telefone</label>
+                        <div class="p-inputgroup">
+                            <input
+                                [ngClass]="{'invalid': formGroup.get('phone').invalid && formGroup.get('phone').touched}"
+                                [mask]="phoneMask" class="form-control" formControlName="phone" type="text">
+                        </div>
+                        <div class="color-red" *ngIf="formGroup.get('phone').invalid && formGroup.get('phone').touched">
+                            Campo obrigatório
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <button (click)="onSave()" type="button" class="btn btn-primary ">Salvar</button>
+                <button (click)="cancelar()" type="button" class="btn btn-link">Cancelar</button>
+            </div>
+        </div>
+    </form>
+</div>

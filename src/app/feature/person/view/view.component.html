@@ -1,0 +1,49 @@
+<br>
+<div class="container-fluid">
+    <button (click)="add()" type="button" class="btn btn-primary ">Cadastrar</button>
+    <br>
+    <br>
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">Consultas</h3>
+        </div>
+        <div class="panel-body">
+            <table class="table">
+                <thead>
+                    <th>
+                        Nome
+                    </th>
+                    <th>
+                        Documento
+                    </th>
+
+                    <th>
+                        Telefone
+                    </th>
+                    <th>
+                        Ações
+                    </th>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let person of people">
+                        <td>
+                            {{person.name}}
+                        </td>
+                        <td>
+                            {{person.document}}
+                        </td>
+                        <td>
+                            {{person.phone}}
+                        </td>
+                        <td>
+                            <button  (click)="update(person.id)" type="button" class="margin-right btn btn-primary">Editar</button>
+                            <button (click)="onDelete(person.id)" type="button" class="btn btn-danger">Excluir</button>
+                        </td>
+
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
