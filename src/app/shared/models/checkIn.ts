@@ -5,5 +5,6 @@ export interface CheckIn{
     checkOut: Date;
     person: Person;
     vehicle: boolean;
+    price: number;
 
 }

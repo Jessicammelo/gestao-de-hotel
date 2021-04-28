@@ -14,7 +14,7 @@
                     <div class="p-inputgroup">
                         <p-calendar [ngClass]="{'invalid': formGroup.get('checkIn').invalid &&
                             formGroup.get('checkIn').touched}" class="inputStyle" styleClass="inputStyle"
-                            appendTo="body" formControlName="checkIn" type="text">
+                            appendTo="body" [showTime]="true" formControlName="checkIn" type="text">
                         </p-calendar>
                     </div>
                     <div class="color-red" *ngIf="formGroup.get('checkIn').invalid && formGroup.get('checkIn').touched">
@@ -26,7 +26,7 @@
                     <div class="p-inputgroup">
                         <p-calendar [ngClass]="{'invalid': formGroup.get('checkOut').invalid &&
                              formGroup.get('checkOut').touched}" class="inputStyle" styleClass="inputStyle"
-                            appendTo="body" formControlName="checkOut" type="text">
+                            appendTo="body" [showTime]="true" formControlName="checkOut" type="text">
                         </p-calendar>
                     </div>
                     <div class="color-red"
@@ -49,7 +49,7 @@
                 <div class="col-md-6">
                     <br>
                     <br>
-                    <p-checkbox formControlName="vehicle"></p-checkbox> Possui veículo
+                    <p-checkbox formControlName="vehicle" [binary]="true"></p-checkbox> Possui veículo
                 </div>
                 <div class="col-md-12">
                     <br>
@@ -72,10 +72,11 @@
             </div>
             <div class="col-md-7" [formGroup]="formGroupFilter">
                 <div class="col-md-4">
-                    <p-checkbox formControlName="presentPerson"></p-checkbox> Pessoas ainda presentes
+                    <p-checkbox formControlName="presentPerson" [binary]="true"></p-checkbox> Pessoas ainda presentes
                 </div>
                 <div class="col-md-3">
-                    <p-checkbox formControlName="presentNotPerson"></p-checkbox> Pessoas que já deixaram o hotel
+                    <p-checkbox formControlName="presentNotPerson" [binary]="true"></p-checkbox> Pessoas que já deixaram
+                    o hotel
                 </div>
             </div>
             <div class="col-md-10">
@@ -102,7 +103,7 @@
                                     {{checkIn.person.document}}
                                 </td>
                                 <td>
-
+                                    {{checkIn.price}}
                                 </td>
 
                             </tr>
