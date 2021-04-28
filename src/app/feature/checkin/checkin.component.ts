@@ -43,7 +43,7 @@ export class CheckinComponent implements OnInit {
     this.formGroupFilter.get('presentPerson').valueChanges
       .subscribe((presentPerson: boolean) => {
         if (presentPerson) {
-          this.formGroupFilter.get("presentNotPerson").patchValue(false);
+          this.formGroupFilter.get('presentNotPerson').patchValue(false);
           this.filterByPresentPerson();
         }
       });
@@ -51,7 +51,7 @@ export class CheckinComponent implements OnInit {
     this.formGroupFilter.get('presentNotPerson').valueChanges
       .subscribe((presentNotPerson: boolean) => {
         if (presentNotPerson) {
-          this.formGroupFilter.get("presentPerson").patchValue(false);
+          this.formGroupFilter.get('presentPerson').patchValue(false);
           this.filterByPresentNotPerson();
         }
       });
@@ -77,7 +77,7 @@ export class CheckinComponent implements OnInit {
     if (this.formGroup.valid) {
       const checkIn = this.formGroup.getRawValue() as CheckIn;
       if (moment(checkIn.checkIn).isAfter(checkIn.checkOut)) {
-        return alert("A data de check-in não pode ser maior que a data de check-out")
+        return alert('A data de check-in não pode ser maior que a data de check-out');
       }
       this.storageService.addCheckIn(checkIn);
       this.checkIns = this.storageService.listCheckIn();
@@ -98,7 +98,7 @@ export class CheckinComponent implements OnInit {
     this.checkIns = this.storageService.listCheckIn();
     this.checkIns = this.checkIns.filter(checkOut => {
       return moment().isAfter(checkOut.checkOut) || moment().isBefore(checkOut.checkIn);
-    })
+    });
   }
 
 

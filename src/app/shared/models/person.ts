@@ -1,7 +1,6 @@
-export interface Person{
+export interface Person {
     id: string;
     name: string;
     document: string;
-    phone: string; 
-
+    phone: string;
 }

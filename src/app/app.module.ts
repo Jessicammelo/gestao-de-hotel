@@ -6,7 +6,7 @@ import { NgxMaskModule, IConfig } from 'ngx-mask';
 import { CheckboxModule } from 'primeng/checkbox';
 import { AutoCompleteModule } from 'primeng/autocomplete';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {CalendarModule} from 'primeng/calendar';
+import { CalendarModule } from 'primeng/calendar';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -37,9 +37,7 @@ const maskConfig: Partial<IConfig> = {
     ReactiveFormsModule,
     CheckboxModule,
     AutoCompleteModule,
-    CalendarModule,
-   
-
+    CalendarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

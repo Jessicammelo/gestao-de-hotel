@@ -1,10 +1,9 @@
-import { Person } from "./person";
+import { Person } from './person';
 
-export interface CheckIn{
+export interface CheckIn {
     checkIn: Date;
     checkOut: Date;
     person: Person;
     vehicle: boolean;
     price: number;
-
 }

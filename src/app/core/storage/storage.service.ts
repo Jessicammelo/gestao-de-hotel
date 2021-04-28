@@ -10,7 +10,7 @@ export class StorageService {
 
   constructor() { }
 
-  public addPerson(person: Person) {
+  public addPerson(person: Person): void {
     const people = this.listPerson();
     people.push(person);
     localStorage.setItem('people', JSON.stringify(people));

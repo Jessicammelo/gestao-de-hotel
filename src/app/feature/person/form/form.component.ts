@@ -57,11 +57,11 @@ export class FormComponent implements OnInit {
         if (this.storageService.listPerson().some(personSome => {
           return person.document === personSome.document;
         })) {
-          return alert("Este documento já está em uso");
+          return alert('Este documento já está em uso');
         }
         person.id = uuidv4();
       } else {
-        this.storageService.onDelete(person.id)
+        this.storageService.onDelete(person.id);
       }
       this.storageService.addPerson(person);
       this.router.navigate(['/person']);
