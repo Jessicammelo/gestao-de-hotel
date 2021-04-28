@@ -1,7 +1,7 @@
-<br>
 <div class="container-fluid">
     <form [formGroup]="formGroup">
         <button (click)="includePerson()" type="button" class="btn btn-primary">Incluir pessoa</button>
+        <button (click)="includePerson()" type="button" class="btn btn-link">Gerenciar pessoa</button>
         <br>
         <br>
         <div class="panel panel-primary">
@@ -9,47 +9,54 @@
                 <h3 class="panel-title">Novo check in </h3>
             </div>
             <div class="panel-body row">
-                <div class="col-md-6">
-                    <label>Data/hora de entrada</label>
-                    <div class="p-inputgroup">
-                        <p-calendar [ngClass]="{'invalid': formGroup.get('checkIn').invalid &&
+                <div class="col-md-12 p-0">
+                    <div class="col-md-6">
+                        <label>Data/hora de entrada</label>
+                        <div class="p-inputgroup">
+                            <p-calendar [ngClass]="{'invalid': formGroup.get('checkIn').invalid &&
                             formGroup.get('checkIn').touched}" class="inputStyle" styleClass="inputStyle"
-                            appendTo="body" [showTime]="true" formControlName="checkIn" type="text">
-                        </p-calendar>
+                                appendTo="body" [showTime]="true" formControlName="checkIn" type="text">
+                            </p-calendar>
+                        </div>
+                        <div class="color-red"
+                            *ngIf="formGroup.get('checkIn').invalid && formGroup.get('checkIn').touched">
+                            Campo obrigatório
+                        </div>
                     </div>
-                    <div class="color-red" *ngIf="formGroup.get('checkIn').invalid && formGroup.get('checkIn').touched">
-                        Campo obrigatório
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <label>Data/hora de saída</label>
-                    <div class="p-inputgroup">
-                        <p-calendar [ngClass]="{'invalid': formGroup.get('checkOut').invalid &&
+                    <div class="col-md-6">
+                        <label>Data/hora de saída</label>
+                        <div class="p-inputgroup">
+                            <p-calendar [ngClass]="{'invalid': formGroup.get('checkOut').invalid &&
                              formGroup.get('checkOut').touched}" class="inputStyle" styleClass="inputStyle"
-                            appendTo="body" [showTime]="true" formControlName="checkOut" type="text">
-                        </p-calendar>
-                    </div>
-                    <div class="color-red"
-                        *ngIf="formGroup.get('checkOut').invalid && formGroup.get('checkOut').touched">
-                        Campo obrigatório
-                    </div>
-                </div>
-                <div class="col-md-6 ">
-                    <label>Pessoa</label>
-                    <div class="p-inputgroup ">
-                        <p-autoComplete class="inputStyle" styleClass="inputStyle" formControlName="person"
-                            [suggestions]="people" field="name" [dropdown]="true" (completeMethod)="search($event)"
-                            [forceSelection]="true">
-                        </p-autoComplete>
-                    </div>
-                    <div class="color-red" *ngIf="formGroup.get('person').invalid && formGroup.get('person').touched">
-                        Campo obrigatório
+                                appendTo="body" [showTime]="true" formControlName="checkOut" type="text">
+                            </p-calendar>
+                        </div>
+                        <div class="color-red"
+                            *ngIf="formGroup.get('checkOut').invalid && formGroup.get('checkOut').touched">
+                            Campo obrigatório
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <br>
-                    <br>
-                    <p-checkbox formControlName="vehicle" [binary]="true"></p-checkbox> Possui veículo
+                <div class="col-md-12 p-0">
+                    <div class="col-md-6">
+                        <label>Pessoa</label>
+                        <div class="p-inputgroup ">
+                            <p-autoComplete [ngClass]="{'invalid': formGroup.get('person').invalid &&
+                            formGroup.get('person').touched}" class="inputStyle" styleClass="inputStyle"
+                                formControlName="person" [suggestions]="people" field="name" [dropdown]="true"
+                                (completeMethod)="search($event)" [forceSelection]="true">
+                            </p-autoComplete>
+                        </div>
+                        <div class="color-red"
+                            *ngIf="formGroup.get('person').invalid && formGroup.get('person').touched">
+                            Campo obrigatório
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <br>
+                        <br>
+                        <p-checkbox formControlName="vehicle" [binary]="true"></p-checkbox> Possui veículo
+                    </div>
                 </div>
                 <div class="col-md-12">
                     <br>
@@ -79,38 +86,34 @@
                     o hotel
                 </div>
             </div>
-            <div class="col-md-10">
-                <div class="panel-body">
-                    <table class="table">
-                        <thead>
-                            <th>
-                                Nome
-                            </th>
-                            <th>
-                                Documento
-                            </th>
+            <div class="col-md-12 mt-3">
+                <table class="table">
+                    <thead>
+                        <th>
+                            Nome
+                        </th>
+                        <th>
+                            Documento
+                        </th>
 
-                            <th>
-                                Valor gasto (R$)
-                            </th>
-                        </thead>
-                        <tbody>
-                            <tr *ngFor="let checkIn of checkIns">
-                                <td>
-                                    {{checkIn.person.name}}
-                                </td>
-                                <td>
-                                    {{checkIn.person.document}}
-                                </td>
-                                <td>
-                                    {{checkIn.price}}
-                                </td>
-
-                            </tr>
-
-                        </tbody>
-                    </table>
-                </div>
+                        <th>
+                            Valor gasto (R$)
+                        </th>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let checkIn of checkIns">
+                            <td>
+                                {{checkIn.person.name}}
+                            </td>
+                            <td>
+                                {{checkIn.person.document}}
+                            </td>
+                            <td>
+                                {{checkIn.price}}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>

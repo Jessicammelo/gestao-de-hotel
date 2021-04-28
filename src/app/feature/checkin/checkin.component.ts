@@ -69,6 +69,10 @@ export class CheckinComponent implements OnInit {
     this.router.navigate(['/person/new']);
   }
 
+  public goToPerson() {
+    this.router.navigate(['/person']);
+  }
+
   public save() {
     if (this.formGroup.valid) {
       const checkIn = this.formGroup.getRawValue() as CheckIn;

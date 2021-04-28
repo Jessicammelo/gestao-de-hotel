@@ -54,6 +54,11 @@ export class FormComponent implements OnInit {
     if (this.formGroup.valid) {
       const person = this.formGroup.getRawValue() as Person;
       if (this.isNew()) {
+        if (this.storageService.listPerson().some(personSome => {
+          return person.document === personSome.document;
+        })) {
+          return alert("Este documento já está em uso");
+        }
         person.id = uuidv4();
       } else {
         this.storageService.onDelete(person.id)
