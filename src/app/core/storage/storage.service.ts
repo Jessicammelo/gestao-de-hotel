@@ -38,10 +38,10 @@ export class StorageService {
   }
 
   public addCheckIn(checkIn: CheckIn) {
-    const monentDate = moment(checkIn.checkIn);
+    const momentDate = moment(checkIn.checkIn);
     let price = 0;
-    while (monentDate.isBefore(checkIn.checkOut)) {
-      if (monentDate.isoWeekday() === 1 || monentDate.isoWeekday() === 7) {
+    while (momentDate.isBefore(checkIn.checkOut)) {
+      if (momentDate.isoWeekday() === 1 || momentDate.isoWeekday() === 7) {
         price = price + 150;
         if (checkIn.vehicle) {
           price = price + 20;
@@ -52,7 +52,7 @@ export class StorageService {
           price = price + 15;
         }
       }
-      monentDate.add(1, 'day');
+      momentDate.add(1, 'day');
     }
     checkIn.price = price;
 

@@ -1,7 +1,7 @@
 <div class="container-fluid">
     <form [formGroup]="formGroup">
         <button (click)="includePerson()" type="button" class="btn btn-primary">Incluir pessoa</button>
-        <button (click)="includePerson()" type="button" class="btn btn-link">Gerenciar pessoa</button>
+        <button (click)="goToPerson()" type="button" class="btn btn-link">Gerenciar pessoa</button>
         <br>
         <br>
         <div class="panel panel-primary">
@@ -78,15 +78,16 @@
                 </label>
             </div>
             <div class="col-md-7" [formGroup]="formGroupFilter">
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <p-checkbox formControlName="presentPerson" [binary]="true"></p-checkbox> Pessoas ainda presentes
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-6">
                     <p-checkbox formControlName="presentNotPerson" [binary]="true"></p-checkbox> Pessoas que já deixaram
                     o hotel
                 </div>
             </div>
             <div class="col-md-12 mt-3">
+                <br>
                 <table class="table">
                     <thead>
                         <th>
@@ -109,7 +110,7 @@
                                 {{checkIn.person.document}}
                             </td>
                             <td>
-                                {{checkIn.price}}
+                                {{checkIn.price | currency:'BRL'}}
                             </td>
                         </tr>
                     </tbody>
